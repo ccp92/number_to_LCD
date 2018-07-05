@@ -9,11 +9,12 @@ class Display
 
   def convert(digits)
     number_of_digits = digits.to_s.length
+    array_of_digits = digits.to_s.split('')
     if number_of_digits == 1
       return @top_of_number[digits] + "\n" + @middle_of_number[digits] + "\n" + @bottom_of_number[digits]
     else
-      return "    _ \n  | _|\n  ||_ " if digits == 12
-      " _  _ \n _| _|\n|_  _|"
+      p digits.to_s.split('')
+      return @top_of_number[array_of_digits[0].to_i] + @top_of_number[array_of_digits[1].to_i] + "\n" + @middle_of_number[array_of_digits[0].to_i] + @middle_of_number[array_of_digits[1].to_i] + "\n" + @bottom_of_number[array_of_digits[0].to_i] + @bottom_of_number[array_of_digits[1].to_i]
     end
   end
 end
