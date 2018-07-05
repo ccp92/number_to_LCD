@@ -7,7 +7,7 @@ describe Display do
   context 'single digits outputs' do
     context 'given an input of 1' do
       it 'returns an LCD version of 1' do
-        conversion(1, "   \n | \n | ")
+        conversion(1, "   \n  |\n  |")
       end
     end
 
@@ -62,6 +62,20 @@ describe Display do
     context 'given an input of 0' do
       it 'returns an LCD version of 0' do
         conversion(0, " _ \n| |\n|_|")
+      end
+    end
+  end
+
+  context 'double digits outputs' do
+    context 'given an input of 12' do
+      it 'returns and LCD version of 12' do
+        conversion(12, "    _ \n  | _|\n  ||_ ")
+      end
+    end
+
+    context 'given an input of 23' do
+      it 'returns and LCD version of 23' do
+        conversion(23, " _  _ \n _| _|\n|_  _|")
       end
     end
   end
