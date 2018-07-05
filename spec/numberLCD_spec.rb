@@ -80,6 +80,14 @@ describe Display do
     end
   end
 
+  context 'large number of digits' do
+    context 'given and input of 1234' do
+      it 'returns an LCD version of 1234' do
+        conversion(1234, "    _  _    \n  | _| _||_|\n  ||_  _|  |")
+      end
+    end
+  end
+
   private
 
   def conversion(digits, output)

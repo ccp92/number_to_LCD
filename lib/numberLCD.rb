@@ -8,13 +8,39 @@ class Display
   end
 
   def convert(digits)
-    number_of_digits = digits.to_s.length
-    array_of_digits = digits.to_s.split('')
-    if number_of_digits == 1
-      return @top_of_number[digits] + "\n" + @middle_of_number[digits] + "\n" + @bottom_of_number[digits]
-    else
-      p digits.to_s.split('')
-      return @top_of_number[array_of_digits[0].to_i] + @top_of_number[array_of_digits[1].to_i] + "\n" + @middle_of_number[array_of_digits[0].to_i] + @middle_of_number[array_of_digits[1].to_i] + "\n" + @bottom_of_number[array_of_digits[0].to_i] + @bottom_of_number[array_of_digits[1].to_i]
+    array_of_digits = digits.to_s.split('').map(&:to_i)
+    number_of_digits = array_of_digits.length
+
+    "#{top_row_builder(array_of_digits, number_of_digits)}\n#{middle_row_builder(array_of_digits, number_of_digits)}\n#{bottom_row_builder(array_of_digits, number_of_digits)}"
+  end
+
+  def top_row_builder(array_of_digits, number_of_digits)
+    top_row = ''
+    i = 0
+    while i < number_of_digits
+      top_row += @top_of_number[array_of_digits[i]]
+      i += 1
     end
+    top_row
+  end
+
+  def middle_row_builder(array_of_digits, number_of_digits)
+    middle_row = ''
+    i = 0
+    while i < number_of_digits
+      middle_row += @middle_of_number[array_of_digits[i]]
+      i += 1
+    end
+    middle_row
+  end
+
+  def bottom_row_builder(array_of_digits, number_of_digits)
+    bottom_row = ''
+    i = 0
+    while i < number_of_digits
+      bottom_row += @bottom_of_number[array_of_digits[i]]
+      i += 1
+    end
+    bottom_row
   end
 end
